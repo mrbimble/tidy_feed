@@ -8,6 +8,8 @@
 #  created_at      :datetime        not null
 #  updated_at      :datetime        not null
 #  password_digest :string(255)
+#  remember_token  :string(255)
+#  admin           :boolean(1)      default(FALSE)
 #
 
 require 'spec_helper'
@@ -27,6 +29,11 @@ describe User do
 	it { should respond_to(:remember_token) }
 	it { should respond_to(:authenticate) }
 	it { should respond_to(:admin) }
+	it { should respond_to(:relationships) }
+	it { should respond_to(:followed_feeds) }
+	it { should respond_to(:following?) }
+	it { should respond_to(:follow!) }
+	it { should respond_to(:unfollow!) }
 
 
 	it { should be_valid }
@@ -125,5 +132,23 @@ describe User do
 	describe "remember token" do
 		before { @user.save }
 		its(:remember_token) { should_not be_blank }
+	end
+
+	describe "following" do
+		let(:feed) { FactoryGirl.create(:feed) }
+		before do
+			@user.save
+			@user.follow!(feed)
+		end
+
+		it { should be_following(feed) }
+		its(:followed_feeds) { should include(feed) }
+
+		describe "and unfollowing" do
+			before { @user.unfollow!(feed) }
+
+			it { should_not be_following(feed) }
+			its(:followed_feeds) { should_not include(feed) }
+		end
 	end
 end

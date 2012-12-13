@@ -1,2 +1,13 @@
-<h1>Home</h1>
-<p> This is where the feeds will be </p>
+
+<ul class="posts">
+	<% @posts.each do |post| %>
+		<li>
+			<%= link_to Base64.decode64(post.title), post_path(post) %>
+			<br />
+			<small><%= Base64.decode64(post.creator) %> <%=post.pubDate %></small>
+			<br />
+			
+				
+		</li>
+	<% end %>
+</ul>

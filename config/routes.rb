@@ -1,6 +1,15 @@
 TidyFeed::Application.routes.draw do
-  resources :users
+  
+  resources :users do
+    member do
+      put 'update_followed_feeds'
+      get 'feed_list'
+    end
+  end
   resources :sessions, only: [:new, :create, :destroy]
+  resources :feeds
+  resources :relationships, only: [:create, :destroy]
+  resources :posts, only: [:show]
 
   root to: 'static_pages#home'
 
@@ -8,7 +17,7 @@ TidyFeed::Application.routes.draw do
   match '/signup',  to: 'users#new'
   match '/signin',  to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
-  
+  match '/myfeeds', to: 'static_pages#feed_list'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,0 +1,9 @@
+<% provide(:title, "Post View") %>
+<%= link_to 'Back to Post List', root_path, class: 'pull-right' %>
+<h3><%= Base64.decode64(@post.title) %> </h3>
+<small><%= Base64.decode64(@post.creator) %></small>
+<br />
+<br />
+<br />
+
+<%= Base64.decode64(@post.content).html_safe %>

@@ -1,0 +1,36 @@
+<% provide(:title, 'All Feeds') %>
+<h1>All Feeds</h1>
+
+<div class="row">
+	<div class="span2 offset10">
+		<%= link_to "Create Feed", new_feed_path, class: "btn" %>
+	</div>
+</div>
+<div class="row">
+	<table id='feedTable'>
+		<thead>
+			<tr>
+				<th>Feed</th>
+				<th>URL</th>
+				<th>Posts</th>
+				<th>Followers</th>
+				<th></th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<%= render @feeds %>
+		</tbody>
+	</table>
+	<br />
+	<h4>Feed count: <%= @feeds.size %></h4>
+</div>
+
+<!-- Need to create a table of feeds
+	It should list
+	Feed Name
+	Feed Link
+	# of Followers
+	# of Posts
+	Edit Link
+	-->

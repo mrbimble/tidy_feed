@@ -1,0 +1,10 @@
+<% if @feeds.any? %>
+	<tr>
+		<td><%= feed.name %></td>
+		<td><%= feed.url %></td>
+		<td><%= feed.posts.count %></td>
+		<td><%= feed.followers.count %></td>
+		<td><%= link_to 'Edit', edit_feed_path(feed) %></td>
+		<td><%= link_to 'Delete', feed, method: :delete, data: { confirm: "Are you sure? Deleting this feed will also delete any associated posts." } %></td>
+	</tr>
+<% end %>

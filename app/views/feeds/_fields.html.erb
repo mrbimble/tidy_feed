@@ -1,0 +1,18 @@
+<% if @feed.errors.any? %>
+	<div id="error_explanation">
+		<div class="alert alert-error">
+			The form contains <%= pluralize(@feed.errors.count, "error") %>
+		</div>
+		<ul>
+			<% @feed.errors.full_messages.each do |msg| %>
+				<li>* <%= msg %></li>
+			<% end %>
+		</ul>
+	</div>
+<% end %>
+
+<%= f.label :name %>
+<%= f.text_field :name %>
+
+<%= f.label :url %>
+<%= f.text_field :url %>

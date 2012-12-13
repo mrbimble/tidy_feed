@@ -1,0 +1,14 @@
+<% provide(:title, "Your feeds") %>
+<h1>Update your feeds</h1>
+<div class="row">
+	<div id="feedForm" class="span6 offset3">
+		<%= form_for(current_user.relationships.build, remote: true) do %>
+			<% Feed.all.each do |feed| %>
+				<%= check_box_tag 'user[followed_feed_ids][]', feed.id, @user.following?(feed), id: 'user_followed_feed_id_#{feed.id}' %>
+				<%= label_tag 'user[followed_feed_ids][]', feed.name, for: 'user_followed_feed_id_#{feed.id}' %>
+			<% end %>
+			<%= submit_tag "Update feeds", class: "btn btn-large btn-primary" %>
+		<% end %>
+		<%= hidden_field_tag 'user[followed_feed_ids][]' %>
+	</div>
+</div>

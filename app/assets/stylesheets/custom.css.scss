@@ -45,6 +45,22 @@ p {
   line-height: 1.7em;
 }
 
+/* Tables */
+#feedTable {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  margin: 20px;
+  tr {
+    border-bottom: solid 1px #eaeaea;
+  }
+  td {
+    padding: 6px 8px;
+  }
+
+  
+}
+
 /* Footer */
 
 footer {
