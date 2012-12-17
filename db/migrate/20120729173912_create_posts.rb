@@ -6,7 +6,7 @@ class CreatePosts < ActiveRecord::Migration
       t.string :guid
       t.string :creator
       t.integer :feed_id
-      t.datetime :pubDate
+      t.datetime :pubdate
       t.string :content
 
       t.timestamps
