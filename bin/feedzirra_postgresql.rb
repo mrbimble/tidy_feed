@@ -1,7 +1,7 @@
 require 'feedzirra'
 require 'pg'
 require 'base64'
-require '~/Documents/Post.rb'
+require './Post.rb'
 require 'ap'
 
 #Master Array to hold Post objects
