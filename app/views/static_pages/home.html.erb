@@ -1,13 +1,17 @@
 
 <ul class="posts">
-	<% @posts.each do |post| %>
-		<li>
-			<%= link_to Base64.decode64(post.title), post_path(post) %>
-			<br />
-			<small><%= Base64.decode64(post.creator) %> <%=post.pubdate %></small>
-			<br />
+	<% @posts.each_with_index do |post, index| %>
+
+		<% if index % 2 == 0 %>
+			<li class="even">
+		<% else %>
+			<li class="odd">
+		<% end %>	
 			
-				
-		</li>
+				<%= link_to Base64.decode64(post.title), post_path(post) %>
+				<br />
+				<small><%= Base64.decode64(post.creator) %> <%=post.pubdate %></small>
+				<br />									
+			</li>
 	<% end %>
 </ul>

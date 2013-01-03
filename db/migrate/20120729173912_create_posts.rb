@@ -12,6 +12,6 @@ class CreatePosts < ActiveRecord::Migration
       t.timestamps
     end
 
-    add_index :posts, [:feed_id, :pubDate]
+    add_index :posts, [:feed_id, :pubdate]
   end
 end
