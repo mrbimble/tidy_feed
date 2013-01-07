@@ -11,7 +11,7 @@ gem 'bootstrap-will_paginate', '0.0.7'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 group :development, :test do
-	gem 'pg'
+	gem 'mysql2'
 	gem 'rspec-rails', '2.10.0'
 end
 

@@ -24,6 +24,14 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1;
 }
 
+h3 a:hover {
+	text-decoration: none;
+}
+
+.brand a:hover {
+	text-decoration: none;
+}
+
 h1 {
   font-size: 3em;
   letter-spacing: -2px;
@@ -148,3 +156,143 @@ input, textarea, select, .uneditable-input {
     }
   }
 }
+
+/* Timeline Layout */
+
+
+time,.author{
+    font-size: 10px; color:gray; border-bottom: 1px solid #cccccc; padding-bottom: 5px; padding-top: 5px;
+}
+#timeline{
+     min-width: 70%; list-style-type: none;background: url(image_path('ine.png')) top center repeat-y; margin: 0 auto; padding:5px; margin-bottom:5px; 
+}
+
+#timeline li{
+    width:47%; height: 400px; padding:10px 5px 5px 5px; position: relative;background: url(articlebg.png) repeat-x bottom; 
+}
+
+#timeline li.odd{
+    clear: both; box-shadow: 0px -5px 9px #dadada;
+}
+#timeline li.even{
+   box-shadow: 0px -5px 9px #dadada;
+}
+
+#timeline li.odd, #timeline li.even{
+    margin:-10px 0 20px 0;
+}
+#timeline li.even .corner{
+	position: absolute; display:block; right: -7px; top: 2px; width:10%; height:14px; background:url(image_path('leftline.png'));
+}
+#timeline li.even .shadow{
+	position: absolute; display:block; right: -12px; top: 2px; width:18px; height:14px; background:url(image_path('leftshadow.png'));
+}
+#timeline li.odd .time{
+	position:absolute; display:block;  left: 10px; font-size: 15px; color:#dadada; z-index:1; top: -15px; font-weight: 900;
+}
+
+#timeline li.odd .corner{
+	position:absolute; display:block; left: -12px; top: 2px; width:10%;height:14px;background:url(image_path('rightline.png'));
+}
+#timeline li.even .time{
+	position:absolute; display:block;  right: 10px; font-size: 15px; color:#dadada; top: -15px; font-weight: 900;
+}
+
+@media screen and (min-width: 980px){
+
+	#timeline {
+	width: 93%;
+	
+  }
+
+    #timeline li{
+	/*width: 24%;
+	float: right;
+	display: inline-block;*/
+  }
+
+}
+@media screen and (min-width: 480px){
+
+  #timeline li.odd{
+    float: right;
+  }
+
+}
+@media screen and (max-width: 700px){
+  #timeline{
+    width: auto;
+    float:none;
+       
+  }
+  
+  #timeline li{
+    float: none; 
+}
+  #content {
+    width: auto;
+    float:none;
+  }
+}
+@media screen and (max-width: 480px){
+  #header{
+    height: auto;
+  }
+  h1 {
+    font-size: 24px;
+  }
+    #timeline{
+    background: url();
+  }
+    #timeline li.odd{
+    width:100%;
+  }
+     #timeline li.even{
+    width:100%;
+  }
+}
+
+.container{
+	width: 98%;
+	
+	
+}
+
+.content{
+	position: relative;
+	height: 500px;
+	
+	
+}
+
+.preview-post {
+	height: 400px;
+	width: 97%;
+	position: absolute;
+	overflow: hidden;
+
+}
+
+.preview-post .read-more { 
+	position: absolute; 
+	bottom: 0; left:0;
+	width: 100%; 
+	text-align: right;
+	margin: 0; padding: 30px 0; 
+	
+	/* "transparent" only works here because == rgba(0,0,0,0) */
+	background-image: -webkit-gradient(linear,left top,left bottom,color-stop(1, transparent),color-stop(0, white));
+        background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 1) 100%
+    );
+        background-image: -moz-linear-gradient(rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 1) 100%
+    );
+        background-image: -ms-linear-gradient(rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 1) 100%
+    );
+        background-image: -o-linear-gradient(rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 1) 100%
+    );
+}
+

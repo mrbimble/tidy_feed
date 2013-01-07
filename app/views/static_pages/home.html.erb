@@ -1,13 +1,35 @@
+<div class="container">
+<% @posts.each_with_index do |post, index| %>
+	
 
-<ul class="posts">
-	<% @posts.each do |post| %>
-		<li>
-			<%= link_to Base64.decode64(post.title), post_path(post) %>
-			<br />
-			<small><%= Base64.decode64(post.creator) %> <%=post.pubdate %></small>
-			<br />
+<ul id="timeline">
+		<div id="content">
+		
+		
+		<% if index % 2 == 0 %>
+			<li class="odd">
+		<% else %>
+			<li class="even">
+		<% end %>
+		<div class="time"> <%=post.pubdate %></div>
+		<span class="corner"></span>
+		<span class="shadow"></span>
+  <div class="preview-post">
+			<h3><%= link_to Base64.decode64(post.title), post_path(post) %></h3>
+			<div class="author"><%= Base64.decode64(post.creator) %></div>
 			
-				
+			<%= Base64.decode64(post.content).html_safe %>
+			<p class="read-more"><a href="#" class="button"></a></p>
+		</div>
+  
 		</li>
-	<% end %>
+		
+	
+		</div>
 </ul>
+
+<% end %>
+</div>
+
+		
+
